@@ -12,7 +12,7 @@ de pré-charger ces ressources avant d'appeler les outils Unitex.
 
 Pour cela, il existe pour chaque type de ressource (dictionnaire, graphe et alphabet)
 une fonction de pré-chargement. Cette fonction retourne le nom de la ressource
-persistente (dans le buffer ``persistent_filename_buffer`` de taille ``buffer_size``
+persistante (dans le buffer ``persistent_filename_buffer`` de taille ``buffer_size``
 qui devra être fourni par l'appelant en C, comme valeur de retour des fonctions Java).
 
 .. note::
@@ -46,6 +46,13 @@ C
                                            char* persistent_filename_buffer,
                                            size_t buffer_size);
 
+``persistence_public_is_persisted_dictionary_filename``
+-------------------------------------------------
+
+.. code-block:: cpp
+
+    int persistence_public_is_persisted_dictionary_filename(const char*filename);
+    
 ``persistence_public_unload_dictionary``
 ----------------------------------------
 
@@ -61,6 +68,13 @@ C
     int persistence_public_load_fst2(const char* filename,
                                      char* persistent_filename_buffer,
                                      size_t buffer_size);
+
+``persistence_public_is_persisted_fst2_filename``
+-------------------------------------------------
+
+.. code-block:: cpp
+
+    int persistence_public_is_persisted_fst2_filename(const char*filename);
 
 ``persistence_public_unload_fst2``
 ----------------------------------
@@ -78,13 +92,19 @@ C
                                          char* persistent_filename_buffer,
                                          size_t buffer_size);
 
+``persistence_public_is_persisted_alphabet_filename``
+-------------------------------------------------
+
+.. code-block:: cpp
+
+    int persistence_public_is_persisted_alphabet_filename(const char*filename);
+
 ``persistence_public_unload_alphabet``
 --------------------------------------
 
 .. code-block:: cpp
 
     void persistence_public_unload_alphabet(const char* filename);
-
 
 .. index::
     pair: Persistance des ressources; Java
